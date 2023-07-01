@@ -1,0 +1,9 @@
+{
+	"name": "adfuseforproject",
+	"location": "southeastasia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "1c2d5c57-e001-4d35-b7f1-0d738e1f11a6",
+		"tenantId": "f958e84a-92b8-439f-a62d-4f45996b6d07"
+	}
+}
