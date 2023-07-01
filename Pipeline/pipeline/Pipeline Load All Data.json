@@ -1,0 +1,100 @@
+{
+	"name": "Pipeline Load All Data",
+	"properties": {
+		"activities": [
+			{
+				"name": "Pipeline Load Agency to Synapse",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "Pipeline Load Agency to Synapse",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "Pipeline Load Emp to Synapse",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "Pipeline Load Emp to Synapse",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "Pipeline Load Title to Synapse",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "Pipeline Load Title to Synapse",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "Pipeline Load Payroll to SQL",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "Pipeline Load Payroll to SQL",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "Pipeline Load SQL to Synapse",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "Pipeline Load Agency to Synapse",
+						"dependencyConditions": [
+							"Skipped"
+						]
+					},
+					{
+						"activity": "Pipeline Load Emp to Synapse",
+						"dependencyConditions": [
+							"Skipped"
+						]
+					},
+					{
+						"activity": "Pipeline Load Title to Synapse",
+						"dependencyConditions": [
+							"Skipped"
+						]
+					},
+					{
+						"activity": "Pipeline Load Payroll to SQL",
+						"dependencyConditions": [
+							"Skipped"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "Pipeline Load SQL to Synapse",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2023-07-01T14:17:28Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
