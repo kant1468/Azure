@@ -1,0 +1,9 @@
+{
+	"name": "triadf146",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "b36c6cc1-7b6f-4855-a41a-3de7e6fab15c",
+		"tenantId": "a4aab68d-210c-472f-bb95-493732cdc131"
+	}
+}
